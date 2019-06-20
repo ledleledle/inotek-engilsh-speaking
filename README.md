@@ -1,0 +1,2 @@
+# inotek
+buat lomba
