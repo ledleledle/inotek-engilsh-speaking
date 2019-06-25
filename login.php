@@ -14,17 +14,10 @@ if($cek == 0) {
   header("location:login.php");
   $_SESSION['param'] = 'gagal';
 }else{
-  if($userid['level'] == 1){
-    unset($_SESSION['param']);
-    header('location:admin.php');
-    $_SESSION['userid'] = $userid['id'];
-    $_SESSION['lvl'] = $userid['level'];
-  }else{
     unset($_SESSION['param']);
     header('location:dashboard.php');
     $_SESSION['userid'] = $userid['id'];
     $_SESSION['lvl'] = $userid['level'];
-    }
   }
 }
 ?>
@@ -34,7 +27,7 @@ if($cek == 0) {
 <head>
 
   <?php include 'partials/head.php'; ?>
-  <title>SB Admin 2 - Login</title>
+  <title>Belajar English - Login</title>
 </head>
 
 <!-- biar cakep pake gambar bg nya -->
@@ -76,7 +69,10 @@ if($cek == 0) {
                     <hr>
                   </form>
                   <div class="text-center">
-                    <a class="small" href="register.html">Belum punya akun? Daftar!</a>
+                    <a class="small" href="register.php">Belum punya akun? Daftar!</a>
+                  </div>
+                  <div class="text-center">
+                  <a class="small" href="forgot-password.php">Lupa Password?</a>
                   </div>
                 </div>
               </div>

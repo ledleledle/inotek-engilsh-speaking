@@ -2,20 +2,18 @@
 session_start();
 $usrid = $_SESSION['userid'];
 $lvlusr = $_SESSION['lvl'];
-/* comment them for now
 if(!isset($usrid)){
   header('location:login.php');
 }else{
-  */
 ?>
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-<?php if($lvlusr == 1) { echo 'success';} else { echo 'primary';} ?> sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.php">
+        <div class="sidebar-brand-icon">
+          <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="logo" width="40" height="40">
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3"><?php if($lvlusr == 1) { echo 'Halaman Admin';} else { echo 'English Speaking';} ?></div>
       </a>
 
       <!-- Divider -->
@@ -23,9 +21,9 @@ if(!isset($usrid)){
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="admin.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Dasbor</span></a>
       </li>
 
       <!-- Divider -->
@@ -133,10 +131,9 @@ if(!isset($usrid)){
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="logout.php">Logout</a>
         </div>
       </div>
     </div>
-  </div><!--
-  they too!
-  <?php } ?> -->
+  </div>
+  <?php } ?>

@@ -1,6 +1,7 @@
  <!DOCTYPE html>
 <html>
 <head>
+  <title>Belajar English</title>
   <!-- ntar jadiin satu aja di folder partials -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style/styleuser.css">
@@ -39,10 +40,10 @@
       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link text-white" href="#"><i class="fas fa-user-plus"></i> <strong>Daftar</strong></a>
+                <a class="nav-link text-white" href="register.php"><i class="fas fa-user-plus"></i> <strong>Daftar</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#"><i class="fas fa-sign-in-alt"></i> <strong>Login</strong></a>
+                <a class="nav-link text-white" href="login.php"><i class="fas fa-sign-in-alt"></i> <strong>Login</strong></a>
             </li>
         </ul>
     </div>
