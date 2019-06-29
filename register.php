@@ -138,6 +138,8 @@
 <body class="bg-gradient-success">
 
   <div class="container">
+    <?php include 'partials/navbaruser.php'; ?>
+    <br>
     <div class="row justify-content-center">
     <div class="col-lg-6 col-md-9">
     <div class="card o-hidden border-0 shadow-lg my-5">

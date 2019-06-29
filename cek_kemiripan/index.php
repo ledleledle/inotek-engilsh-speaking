@@ -22,7 +22,7 @@ if (isset($_POST['submit']))
 	
 	$kemiripan2=cek_kemiripan($teks1, $teks2);
 
-	echo "Nilai Kemiripan = $kemiripan2 %";
+	echo "Nilai Kemiripan = $kemiripan2";
 
 }
 

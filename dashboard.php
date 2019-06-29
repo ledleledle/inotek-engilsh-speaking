@@ -1,9 +1,15 @@
+<?php include 'connect.php';
+$user1 = mysqli_query($conn, "SELECT * FROM user WHERE level = 2");
+$admin1 = mysqli_query($conn, "SELECT * FROM user WHERE level = 1");
+$perp = mysqli_query($conn, "SELECT * FROM kata");
+$kritik = mysqli_query($conn, "SELECT * FROM kritik");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <?php include 'partials/head.php'; ?>
-  <title>Admin - Dasbor</title>
+  <title>Belajar English Speaking  - Dasbor</title>
   <style>
     ul.timeline {
     list-style-type: none;
@@ -59,7 +65,7 @@ ul.timeline > li:before {
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+<?php if($lvlusr == 1){ ?>
           <!-- Content Row -->
           <div class="row">
 
@@ -70,7 +76,7 @@ ul.timeline > li:before {
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">User</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo mysqli_num_rows($user1); ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -87,7 +93,7 @@ ul.timeline > li:before {
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Admin</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo mysqli_num_rows($admin1); ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -106,7 +112,7 @@ ul.timeline > li:before {
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Perpustakaan Kata</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">500</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo mysqli_num_rows($perp); ?></div>
                         </div>
                       </div>
                     </div>
@@ -125,7 +131,7 @@ ul.timeline > li:before {
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Kritik & Saran</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo mysqli_num_rows($kritik); ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -149,36 +155,25 @@ ul.timeline > li:before {
                 </div>
                   <div class="card-body">
                     <ul class="timeline">
+                      <?php $log = mysqli_query($conn, "SELECT * FROM log ORDER BY id DESC LIMIT 0,8");
+                      $cekrow = mysqli_num_rows($log);
+                      if($cekrow == 0){
+                        echo "Belum Ada Aktiivitas";
+                      } else{
+                      while ($rou = mysqli_fetch_array($log)) { ?>
                       <li>
-                        <a href="#">New Web Design</a>
-                        <a href="#" class="float-right">21 March, 2014</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula....</p>
-                      </li>
+                        <a href="#"><?php echo $rou['body']; ?></a>
+                        <a href="#" class="float-right"><?php echo $rou['tgl']; ?></a>
+                        <p><?php $adm0n = $rou['admin'];
+                        $admon = mysqli_query($conn, "SELECT * FROM user WHERE id = '$adm0n'");
+                        $adm00n = mysqli_fetch_array($admon);
+                        echo 'Oleh : '.$adm00n['username']; ?></p>
+                      </li>  
+                      <?php } ?>
                       <li>
-                        <a href="#">21 000 Job Seekers</a>
-                        <a href="#" class="float-right">4 March, 2014</a>
-                        <p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
+                        <a href="log.php">Log Lengkap &rarr;</a>
                       </li>
-                      <li>
-                        <a href="#">Awesome Employers</a>
-                        <a href="#" class="float-right">1 April, 2014</a>
-                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio, tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor nibh...</p>
-                      </li>
-                      <li>
-                        <a href="#">Awesome Employers</a>
-                        <a href="#" class="float-right">1 April, 2014</a>
-                        <p>Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio, tincidunt vitae nunc vitae, mollis pharetra velit. Sed nec tempor nibh...</p>
-                      </li>
-                      <li>
-                        <a href="#">21 000 Job Seekers</a>
-                        <a href="#" class="float-right">4 March, 2014</a>
-                        <p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
-                      </li>
-                      <li>
-                        <a href="#">21 000 Job Seekers</a>
-                        <a href="#" class="float-right">4 March, 2014</a>
-                        <p>Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
-                      </li>
+                    <?php } ?>
                     </ul>
                   </div>
               </div>
@@ -198,14 +193,96 @@ ul.timeline > li:before {
                   <div class="text-center">
                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
                   </div>
-                  <p>Pada era Revolusi Industri 4.0 sekarang, selain pengetahuan dan keahlian dibidang pengelolaan teknologi informasi, Bahasa Inggris tetap menjadi kebutuhan pokok yang harus dimiliki oleh generasi penerus. Bahasa Inggris juga sudah masuk kurikulum pada pendidikan dasar tingkat 1 meski hanya sebatas pengenalan. Apabila orang tua wali murid menghendaki agar anaknya lebih mahir maka bisa diikutkan kursus privat. Pada kursus privat tersebut, salah satu yang dilatih adalah kemampuan berbicara (speaking) dalam bahasa Inggris. Secara konvensional, proses berlatih speaking memerlukan pendamping yang sudah ahli. Pada tingkat dasar, seseorang yang berlatih speaking akan mengucapkan kata dalam bahasa Inggris. Kemudian pendamping akan menilai apakah seseorang tersebut sudah mengucapkannya secara benar atau belum. Ketika tidak sedang menjalani kursus atau menemukan kata-kata baru, akan mengalami kesulitan untuk melakukan penilaian dari latihan atau pembelajaran yang dilakukan secara mandiri. Berdasarkan hal tersebut diatas, tim berinisiatif untuk membuat suatu sistem berupa perangkat lunak yang dapat membantu belajar speaking secara mandiri. Seseorang yang menggunakan perangkat lunak tersebut bisa belajar speaking layaknya didampingi pembimbing. Sistem akan menampilkan kata dalam bahasa Inggris secara terstruktur. Kemudian pengguna mengucapkan kata tersebut dan perangkat lunak akan menilai apakah kata yang diucapkan sudah benar atau belum.</p>
+                  <?php $show = mysqli_query($conn, "SELECT * FROM info");
+                  $row = mysqli_fetch_array($show);
+                  echo $row['latar']; ?>
                   <a href="edit.php">Edit Komponen &rarr;</a>
                 </div>
               </div>
 
             </div>
           </div>
+<?php } else { ?>
+          <!-- Content Row -->
+          <div class="row">
 
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Aktivitas Terakhir</h6>
+                </div>
+                  <div class="card-body">
+                    <ul class="timeline">
+                      <?php $log = mysqli_query($conn, "SELECT * FROM log_user WHERE id_user='$usrid' ORDER BY id DESC LIMIT 0,5");
+                      $cekrow = mysqli_num_rows($log);
+                      if($cekrow == 0){
+                        echo "Belum Ada Aktiivitas";
+                      } else{
+                      while ($rou = mysqli_fetch_array($log)) { ?>
+                      <li>
+                        <a href="#"><?php 
+                        $aeee = $rou['id_kata'];
+                        $kata = mysqli_query($conn, "SELECT * FROM kata WHERE id='$aeee'");
+                        $kata2 = mysqli_fetch_array($kata);
+                        echo "<strong>";
+                        if($kata2['lvl'] == 1){
+                          echo "Easy : ";
+                        } elseif ($kata2['lvl'] == 2) {
+                          echo "Medium : ";
+                        } elseif ($kata2['lvl'] == 3) {
+                          echo "Hard : ";
+                        } else{
+                          echo "Very Hard : ";
+                        }
+                        echo "</strong>";
+                        echo $kata2['kata']; ?></a>
+                        <a href="#" class="float-right"><?php echo $rou['tgl']; ?></a>
+                        <p><?php echo 'Nilai : '.$rou['nilai']; ?></p>
+                      </li>  
+                      <?php } 
+                      echo '<li>
+                        <a href="log.php">Log Lengkap &rarr;</a>
+                      </li>'; } ?>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+
+              <!-- Illustrations -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <div class="row">
+                    <div class="col-sm-8"><h6 class="m-0 font-weight-bold text-primary">Statistik Keseluruhan Anda</h6></div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-pie pt-4">
+                    <div style="width: 100%; height: 40px; position: absolute; top: 50%; left: 0; line-height:19px; text-align: center; z-index: 999999999999999">
+                    <?php
+                      $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid'");
+                      $show2 =mysqli_fetch_array($show1);
+                      $sub = substr($show2['nilai'], 0, 2);
+                      echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
+                    </div>
+                    <canvas id="myPieChart"></canvas>
+                  </div>
+                  <hr>
+                  <div class="text-center">
+                  <?php $show = mysqli_query($conn, "SELECT * FROM log_user WHERE id_user = '$usrid'");
+                  
+                  echo "Anda Telah Bermain : <strong>".mysqli_num_rows($show)." x</strong> dan Nilai Rata - Rata Anda : <strong>".$sub."</strong>"; ?>
+                </div>
+              </div>
+              </div>
+
+            </div>
+          </div>
+ <?php } ?>
         </div>
         <!-- /.container-fluid -->
 

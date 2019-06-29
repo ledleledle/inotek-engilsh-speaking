@@ -1,5 +1,6 @@
 <?php
 session_start();
+if(!isset($_SESSION['userid'])){
 include 'connect.php';
 @$param = $_SESSION['param'];
 
@@ -34,7 +35,8 @@ if($cek == 0) {
 <!-- <body class="bg-gradient-success" style="background-image: url('../pakardi/bg/bg1.jpeg');"> -->
 <body class="bg-gradient-success">
   <div class="container">
-
+    <?php include 'partials/navbaruser.php'; ?>
+    <br>
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
@@ -62,10 +64,9 @@ if($cek == 0) {
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="pass">
                     </div>
-
                     <div class="form-group">
-                    </div>
                     <input type="submit" name="submit" value="Login" class="btn btn-primary btn-user btn-block">
+                    </div>
                     <hr>
                   </form>
                   <div class="text-center">
@@ -90,3 +91,4 @@ if($cek == 0) {
 </body>
 
 </html>
+<?php } else { header('location:dashboard.php'); } ?>

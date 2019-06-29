@@ -6,7 +6,7 @@ if(!isset($usrid)){
   header('location:login.php');
 }else{
 ?>
-<ul class="navbar-nav bg-gradient-<?php if($lvlusr == 1) { echo 'success';} else { echo 'primary';} ?> sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-<?php if($lvlusr == 1) { echo 'danger';} else { echo 'primary';} ?> sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.php">
@@ -18,96 +18,67 @@ if(!isset($usrid)){
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
+<?php if($lvlusr == 1){ ?>
       <li class="nav-item active">
-        <a class="nav-link" href="admin.php">
+        <a class="nav-link" href="dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dasbor</span></a>
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Interface
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Components</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
-          </div>
-        </div>
+        <a class="nav-link" href="users.php">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Kontrol User</span></a>
       </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
-          </div>
-        </div>
+        <a class="nav-link" href="edit.php">
+          <i class="fas fa-fw fa-pencil-alt"></i>
+          <span>Edit Halaman</span></a>
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
-          </div>
-        </div>
+        <a class="nav-link" href="perpus.php">
+          <i class="fas fa-fw fa-clipboard-list"></i>
+          <span>Perpustakaan Kata</span></a>
       </li>
 
-      <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+        <a class="nav-link" href="log.php">
+          <i class="fas fa-fw fa-list"></i>
+          <span>Aktifitas Terakhir</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+        <a class="nav-link" href="kritik.php">
+          <i class="fas fa-fw fa-comments"></i>
+          <span>Kritik & Saran</span></a>
+      </li>
+  <?php } else { ?>
+      <li class="nav-item active">
+        <a class="nav-link" href="dashboard.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dasbor</span></a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="cards.php">
+          <i class="fas fa-fw fa-play"></i>
+          <span>Mulai</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="log.php">
+          <i class="fas fa-fw fa-list"></i>
+          <span>Aktifitas Terakhir</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="stats.php">
+          <i class="fas fa-fw fa-chart-pie"></i>
+          <span>Statistik Anda</span></a>
+      </li>
+  <?php } ?>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -131,7 +102,7 @@ if(!isset($usrid)){
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="logout.php">Logout</a>
+          <a class="btn btn-danger" href="logout.php">Logout</a>
         </div>
       </div>
     </div>

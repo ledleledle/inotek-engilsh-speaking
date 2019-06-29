@@ -4,7 +4,6 @@
 body, html {
   height: 100%;
   margin: 0;
-  font: 15px/1.8 "Lato", sans-serif;
   color: #777;
 }
 
@@ -40,7 +39,7 @@ body, html {
 .captiony span.bordery {
   background-color: #007bff;
   color: #fff;
-  padding: 18px;
+  padding: 25px;
   font-size: 55px; /* font judul. gw kasih jejak biar ga lupa*/
   letter-spacing: 10px;
   border-radius: 40px;
@@ -55,7 +54,6 @@ body, html {
 h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
   color: #111;
 }
 
@@ -66,6 +64,7 @@ h3 {
   }
   .captiony span.bordery {
     font-size: 20px;
+    padding: 25px 10px;   
   }
 }
 .navbar-scroll {

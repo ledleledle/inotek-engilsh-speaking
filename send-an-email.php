@@ -1,8 +1,10 @@
 <?php
-$username='leon';
-$password='lelele';
-$text = 'username : '.$username.'password : '.$password.'<br>';
-
+$em = $_POST['email'];
+$cek = mysqli_query($conn, "SELECT * FROM user WHERE email = '$em'");
+$cek2 = mysqli_num_rows($cek);
+if($cek2 == 0){
+    echo 'gak';
+} else { 
 /**
  * This example shows settings to use when sending via Google's Gmail servers.
  * This uses traditional id & password authentication - look at the gmail_xoauth.phps

@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'connect.php';
+?>
+
  <!DOCTYPE html>
 <html>
 <head>
@@ -32,22 +37,7 @@
 <!-- until this point -->
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-fade fixed-top">
-    <a href="index.php"><img class="navbar-brand" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="logo" width="50" height="50"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarsExampleDefault">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="register.php"><i class="fas fa-user-plus"></i> <strong>Daftar</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="login.php"><i class="fas fa-sign-in-alt"></i> <strong>Login</strong></a>
-            </li>
-        </ul>
-    </div>
-    </nav>
+    <?php include 'partials/navbaruser.php'; ?>
 <div class="bgimg-1">
   <div class="captiony">
   <span class="bordery" style="background-color:transparent;"><b>APLIKASI BELAJAR ENGLISH SPEAKING MANDIRI</b></span>
@@ -56,18 +46,20 @@
 
 <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
   <h3 style="text-align:center;">Latar Belakang</h3>
-  <p>Pada era Revolusi Industri 4.0 sekarang, selain pengetahuan dan keahlian dibidang pengelolaan teknologi informasi, Bahasa Inggris tetap menjadi kebutuhan pokok yang harus dimiliki oleh generasi penerus. Bahasa Inggris juga sudah masuk kurikulum pada pendidikan dasar tingkat 1 meski hanya sebatas pengenalan. Apabila orang tua wali murid menghendaki agar anaknya lebih mahir maka bisa diikutkan kursus privat. Pada kursus privat tersebut, salah satu yang dilatih adalah kemampuan berbicara (speaking) dalam bahasa Inggris. Secara konvensional, proses berlatih speaking memerlukan pendamping yang sudah ahli. Pada tingkat dasar, seseorang yang berlatih speaking akan mengucapkan kata dalam bahasa Inggris. Kemudian pendamping akan menilai apakah seseorang tersebut sudah mengucapkannya secara benar atau belum. Ketika tidak sedang menjalani kursus atau menemukan kata-kata baru, akan mengalami kesulitan untuk melakukan penilaian dari latihan atau pembelajaran yang dilakukan secara mandiri. Berdasarkan hal tersebut diatas, tim berinisiatif untuk membuat suatu sistem berupa perangkat lunak yang dapat membantu belajar speaking secara mandiri. Seseorang yang menggunakan perangkat lunak tersebut bisa belajar speaking layaknya didampingi pembimbing. Sistem akan menampilkan kata dalam bahasa Inggris secara terstruktur. Kemudian pengguna mengucapkan kata tersebut dan perangkat lunak akan menilai apakah kata yang diucapkan sudah benar atau belum.</p>
+  <?php $show = mysqli_query($conn, "SELECT * FROM info");
+  $rou = mysqli_fetch_array($show);
+  echo $rou['latar']; ?>
 </div>
 
 <div class="bgimg-2">
   <a href="login.php">
   <div class="captiony">
-  <span class="bordery" id="hov" style="font-size:20px;color: #f7f7f7;"><b>GET STARTED</b></span>
+  <span class="bordery" id="hov" style="font-size:20px;color: #f7f7f7;"><b>DAFTAR SEKARANG!</b></span>
   </div></a>
 </div>
 
 <div style="position:relative;">
-  <footer style="padding:50px 80px;text-align: justify; background-color: white;/*edit nih biar lebih oke warnanya */">
+  <footer style="padding:50px 80px;text-align: justify; background-color: white;">
         <div class="row align-items-center justify-content-xl-between">
           <div class="col-xl-6">
             <div>
@@ -77,10 +69,10 @@
           <div class="col-xl-6">
             <ul class="nav nav-footer justify-content-center justify-content-xl-end">
               <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Contact Us</a>
+                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Kontak Kami</a>
               </li>
               <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">Tentang Kami</a>
               </li>
               <li class="nav-item">
                 <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Github</a>
@@ -90,5 +82,24 @@
         </div>
       </footer>
 </div>
+<!-- Modal Logout Biar cakep -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-danger" href="logout.php">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </body>
 </html>
