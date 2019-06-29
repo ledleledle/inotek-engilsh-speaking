@@ -22,8 +22,28 @@ if (isset($_POST['submit']))
 	
 	$kemiripan2=cek_kemiripan($teks1, $teks2);
 
-	echo "Nilai Kemiripan = $kemiripan2";
+	echo "Nilai Kemiripan = $kemiripan2 <br>";
 
 }
 
+$string = $teks1;
+$string2 = $teks2;
+$PecahStr = explode(" ", $string);
+$PecahStr2 = explode(" ", $string2);
+
+for ( $i = 0; $i < count( $PecahStr ); $i++ ) {
+  if(@$PecahStr[$i] == @$PecahStr2[$i]){
+    echo $PecahStr[$i]." ";
+  }else{
+    echo "<a style='color: red;'>".@$PecahStr[$i]."</a> ";
+  }
+}
+echo "<br>"; 
+for ( $i = 0; $i < count( $PecahStr2 ); $i++ ) {
+if(@$PecahStr[$i] == @$PecahStr2[$i]){
+    echo $PecahStr2[$i]." ";
+  }else{
+    echo "<a style='color: red;'>".@$PecahStr2[$i]."</a> ";
+  }
+}
 ?>

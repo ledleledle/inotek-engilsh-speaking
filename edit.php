@@ -1,4 +1,5 @@
 <?php
+$page = 3;
 include 'connect.php';
 @$submit = $_POST['edit'];
 $cek = mysqli_query($conn, "SELECT * FROM info");

@@ -1,6 +1,6 @@
 <?php 
 include 'connect.php';
-@$show = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid'");
+@$show = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif = 4");
 $row = mysqli_fetch_array($show);
 $ben = $row['nilai'];
 $sal = 100 - $ben;
@@ -11,8 +11,8 @@ Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,Bli
 Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
-var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
+var ctx = document.getElementById("vrhardChart");
+var vrhardChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
     labels: ["Salah", "Benar"],

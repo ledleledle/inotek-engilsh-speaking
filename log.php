@@ -1,4 +1,5 @@
 <?php include 'connect.php';
+$page = 5;
 ?>
 <!DOCTYPE html>
 <html lang="en">

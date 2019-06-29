@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-  <?php include 'partials/head.php'; ?>
+  <?php include 'partials/head.php'; 
+  $page = 7;
+  ?>
   <title>Belajar English - Pilih Level</title>
 </head>
 
@@ -36,7 +38,7 @@
           <div class="row">
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="stt/index.html?id=1">
+              <a href="stt/index.php?id=1">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -54,7 +56,7 @@
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="stt/index.html?id=2">
+              <a href="stt/index.php?id=2">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -72,7 +74,7 @@
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="stt/index.html?id=3">
+              <a href="stt/index.php?id=3">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
@@ -94,7 +96,7 @@
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="stt/index.html?id=4">
+              <a href="stt/index.php?id=4">
               <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">

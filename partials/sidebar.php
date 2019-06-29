@@ -19,62 +19,62 @@ if(!isset($usrid)){
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 <?php if($lvlusr == 1){ ?>
-      <li class="nav-item active">
+      <li <?php if($page == "1"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dasbor</span></a>
       </li>
 
-      <li class="nav-item">
+      <li <?php if($page == "2"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="users.php">
           <i class="fas fa-fw fa-users"></i>
           <span>Kontrol User</span></a>
       </li>
 
-      <li class="nav-item">
+      <li <?php if($page == "3"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="edit.php">
           <i class="fas fa-fw fa-pencil-alt"></i>
           <span>Edit Halaman</span></a>
       </li>
 
-      <li class="nav-item">
+      <li <?php if($page == "4"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="perpus.php">
           <i class="fas fa-fw fa-clipboard-list"></i>
           <span>Perpustakaan Kata</span></a>
       </li>
 
-      <li class="nav-item">
+      <li <?php if($page == "5"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="log.php">
           <i class="fas fa-fw fa-list"></i>
           <span>Aktifitas Terakhir</span></a>
       </li>
 
-      <li class="nav-item">
+      <li <?php if($page == "6"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="kritik.php">
           <i class="fas fa-fw fa-comments"></i>
           <span>Kritik & Saran</span></a>
       </li>
   <?php } else { ?>
-      <li class="nav-item active">
+      <li <?php if($page == "1"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dasbor</span></a>
       </li>
 
-      <li class="nav-item">
+      <li <?php if($page == "7"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="cards.php">
           <i class="fas fa-fw fa-play"></i>
           <span>Mulai</span></a>
       </li>
 
-      <li class="nav-item">
+      <li <?php if($page == "5"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="log.php">
           <i class="fas fa-fw fa-list"></i>
           <span>Aktifitas Terakhir</span></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="stats.php">
+      <li <?php if($page == "8"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
+        <a class="nav-link" href="charts.php">
           <i class="fas fa-fw fa-chart-pie"></i>
           <span>Statistik Anda</span></a>
       </li>

@@ -51,12 +51,55 @@ include 'connect.php';
   echo $rou['latar']; ?>
 </div>
 
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Level</h5>
+        <p>Tentukan Skill Yang Kamu Punya</p>
+      </div>
+      <img class="d-block w-100" src="bg/bg1.jpeg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Level</h5>
+        <p>Tentukan Skill Yang Kamu Punya</p>
+      </div>
+      <img class="d-block w-100" src="bg/bg2.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-caption d-none d-md-block bg-danger">
+        <h5>Level</h5>
+        <p>Tentukan Skill Yang Kamu Punya</p>
+      </div>
+      <img class="d-block w-100" src="bg/bg1.jpeg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<?php
+if(!isset($_SESSION['lvl'])){ ?>
 <div class="bgimg-2">
   <a href="login.php">
   <div class="captiony">
   <span class="bordery" id="hov" style="font-size:20px;color: #f7f7f7;"><b>DAFTAR SEKARANG!</b></span>
   </div></a>
 </div>
+<?php } else { echo ''; } ?>
 
 <div style="position:relative;">
   <footer style="padding:50px 80px;text-align: justify; background-color: white;">

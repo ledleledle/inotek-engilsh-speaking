@@ -3,6 +3,7 @@
 
 <head>
 <?php 
+$page = 4;
 include 'connect.php';
 include 'partials/head.php';
 ?>

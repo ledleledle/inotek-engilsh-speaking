@@ -1,5 +1,5 @@
 <?php include 'connect.php';
-
+$page = "2";
 if(isset($_POST['submit'])){
   @$usr = $_POST['name'];
   @$pass = $_POST['pass'];

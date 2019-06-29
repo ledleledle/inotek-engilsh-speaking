@@ -1,4 +1,6 @@
-<?php include 'connect.php';
+<?php 
+$page = '1';
+include 'connect.php';
 $user1 = mysqli_query($conn, "SELECT * FROM user WHERE level = 2");
 $admin1 = mysqli_query($conn, "SELECT * FROM user WHERE level = 1");
 $perp = mysqli_query($conn, "SELECT * FROM kata");
@@ -261,6 +263,9 @@ ul.timeline > li:before {
                   </div>
                 </div>
                 <div class="card-body">
+                  <?php $show = mysqli_query($conn, "SELECT * FROM log_user WHERE id_user = '$usrid'");
+                  $count = mysqli_num_rows($show);
+                  if($count > 0){ ?>
                   <div class="chart-pie pt-4">
                     <div style="width: 100%; height: 40px; position: absolute; top: 50%; left: 0; line-height:19px; text-align: center; z-index: 999999999999999">
                     <?php
@@ -273,10 +278,11 @@ ul.timeline > li:before {
                   </div>
                   <hr>
                   <div class="text-center">
-                  <?php $show = mysqli_query($conn, "SELECT * FROM log_user WHERE id_user = '$usrid'");
-                  
-                  echo "Anda Telah Bermain : <strong>".mysqli_num_rows($show)." x</strong> dan Nilai Rata - Rata Anda : <strong>".$sub."</strong>"; ?>
-                </div>
+                  <?php echo "<code>Anda Telah Bermain : <strong>".$count." x</strong> dan Nilai Rata - Rata Anda : <strong>".$sub."</strong></code>
+                </div>"; 
+                } else {
+                  echo "Belum Ada Aktiivitas";
+                } ?>
               </div>
               </div>
 

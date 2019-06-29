@@ -6,7 +6,11 @@
       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php"><strong>Home</strong></a>
+        <?php if(!isset($_SESSION['lvl'])){
+        echo '<a class="nav-link" href="index.php"><strong>Home</strong></a>';
+      } else {
+        echo '<a class="nav-link" href="dashboard.php"><strong>Dashboard</strong></a>';
+      } ?>
       </li>
     </ul>
         <ul class="navbar-nav ml-auto">

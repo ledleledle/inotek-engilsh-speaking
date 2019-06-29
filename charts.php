@@ -3,8 +3,9 @@
 
 <head>
 
-  <title>SB Admin 2 - Charts</title>
-  <?php include 'partials/head.php'; ?>
+  <title>Belajar English - Statistik Anda</title>
+  <?php include 'partials/head.php';
+  $page = 8; ?>
 </head>
 
 <body id="page-top">
@@ -28,63 +29,134 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-          <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
-
           <!-- Content Row -->
           <div class="row">
 
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-6 col-lg-7">
 
               <!-- Area Chart -->
               <div class="card shadow mb-4">
+
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Easy</h6>
                 </div>
                 <div class="card-body">
+                  <?php $cek1 = mysqli_query($conn, "SELECT * FROM log_user WHERE id_user='$usrid' AND dif = 1");
+                  $itung1 = mysqli_num_rows($cek1);
+                  if($itung1 == 0){
+                    echo "Belum Ada Aktifitas</div>";
+                  } else { ?>
                   <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
+                    <div style="width: 100%; height: 40px; position: absolute; top: 50%; left: 0; line-height:19px; text-align: center; z-index: 999999999999999">
+                    <?php
+                      $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif=1");
+                      $show2 =mysqli_fetch_array($show1);
+                      $sub = substr($show2['nilai'], 0, 2);
+                      echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
+                    </div>
+                    <canvas id="easyChart"></canvas>
                   </div>
                   <hr>
-                  Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                  <div class="text-center">
+                  <?php echo '<code>Anda Telah Bermain : <strong>'.$itung1.' x</strong> dan Nilai Rata - Rata Anda : <strong>'.$sub.'</strong></code>
+                </div>'; ?>
                 </div>
+                <?php } ?>
               </div>
+            
 
               <!-- Bar Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Medium</h6>
                 </div>
                 <div class="card-body">
-                  <div class="chart-bar">
-                    <canvas id="myBarChart"></canvas>
+                  <?php $cek1 = mysqli_query($conn, "SELECT * FROM log_user WHERE id_user='$usrid' AND dif = 2");
+                  $itung1 = mysqli_num_rows($cek1);
+                  if($itung1 == 0){
+                    echo "Belum Ada Aktifitas</div>";
+                  } else { ?>
+                  <div class="chart-area">
+                    <div style="width: 100%; height: 40px; position: absolute; top: 50%; left: 0; line-height:19px; text-align: center; z-index: 999999999999999">
+                    <?php
+                      $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif=2");
+                      $show2 =mysqli_fetch_array($show1);
+                      $sub = substr($show2['nilai'], 0, 2);
+                      echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
+                    </div>
+                    <canvas id="medChart"></canvas>
                   </div>
                   <hr>
-                  Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
+                  <div class="text-center">
+                  <?php echo '<code>Anda Telah Bermain : <strong>'.$itung1.' x</strong> dan Nilai Rata - Rata Anda : <strong>'.$sub.'</strong></code>
+                </div>'; ?>
                 </div>
+                <?php } ?>
               </div>
 
             </div>
 
             <!-- Donut Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-6 col-lg-7">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Hard</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4">
-                    <canvas id="myPieChart"></canvas>
+                  <?php $cek1 = mysqli_query($conn, "SELECT * FROM log_user WHERE id_user='$usrid' AND dif = 3");
+                  $itung1 = mysqli_num_rows($cek1);
+                  if($itung1 == 0){
+                    echo "Belum Ada Aktifitas</div>";
+                  } else { ?>
+                  <div class="chart-area">
+                    <div style="width: 100%; height: 40px; position: absolute; top: 50%; left: 0; line-height:19px; text-align: center; z-index: 999999999999999">
+                    <?php
+                      $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif=3");
+                      $show2 =mysqli_fetch_array($show1);
+                      $sub = substr($show2['nilai'], 0, 2);
+                      echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
+                    </div>
+                    <canvas id="hardChart"></canvas>
                   </div>
                   <hr>
-                  Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
+                  <div class="text-center">
+                  <?php echo '<code>Anda Telah Bermain : <strong>'.$itung1.' x</strong> dan Nilai Rata - Rata Anda : <strong>'.$sub.'</strong></code>
+                </div>'; ?>
+                <?php } ?>
+              </div>
+
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Very Hard</h6>
                 </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <?php $cek1 = mysqli_query($conn, "SELECT * FROM log_user WHERE id_user='$usrid' AND dif = 4");
+                  $itung1 = mysqli_num_rows($cek1);
+                  if($itung1 == 0){
+                    echo "Belum Ada Aktifitas</div>";
+                  } else { ?>
+                  <div class="chart-area">
+                    <div style="width: 100%; height: 40px; position: absolute; top: 50%; left: 0; line-height:19px; text-align: center; z-index: 999999999999999">
+                    <?php
+                      $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif=4");
+                      $show2 =mysqli_fetch_array($show1);
+                      $sub = substr($show2['nilai'], 0, 2);
+                      echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
+                    </div>
+                    <canvas id="vrhardChart"></canvas>
+                  </div>
+                  <hr>
+                  <div class="text-center">
+                  <?php echo '<code>Anda Telah Bermain : <strong>'.$itung1.' x</strong> dan Nilai Rata - Rata Anda : <strong>'.$sub.'</strong></code>
+                </div>'; ?>
+                <?php } ?>
               </div>
             </div>
+
           </div>
 
         </div>
@@ -94,13 +166,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
+      <?php include 'partials/footer.php'; ?>
       <!-- End of Footer -->
 
     </div>
@@ -113,25 +179,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -147,36 +194,12 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <?php include 'js/demo/chart-pie-demo.php'; ?> <!--
-  <script src="js/demo/chart-pie-demo.php"></script> -->
-  <script src="js/demo/chart-bar-demo.js"></script>
+  <?php include 'js/demo/chart-pie-demo.php'; ?>
+  <?php include 'js/demo/easy-chart.php'; ?>
+  <?php include 'js/demo/medium-chart.php'; ?>
+  <?php include 'js/demo/hard-chart.php'; ?>
+  <?php include 'js/demo/vr-hard-chart.php'; ?>
 
 </body>
 
 </html>
-<?php
-/* 
-
-$string = "Contoh PHP Explode";
-$string2 = "Contol PHP Explode Wew";
-$PecahStr = explode(" ", $string);
-$PecahStr2 = explode(" ", $string2);
-
-for ( $i = 0; $i < count( $PecahStr ); $i++ ) {
-  if(@$PecahStr[$i] == @$PecahStr2[$i]){
-    echo $PecahStr[$i]." ";
-  }else{
-    echo "<a style='color: red;'>".@$PecahStr[$i]."</a> ";
-  }
-}
-echo "<br>"; 
-for ( $i = 0; $i < count( $PecahStr2 ); $i++ ) {
-if(@$PecahStr[$i] == @$PecahStr2[$i]){
-    echo $PecahStr2[$i]." ";
-  }else{
-    echo "<a style='color: red;'>".@$PecahStr2[$i]."</a> ";
-  }
-}
- */
-?>
