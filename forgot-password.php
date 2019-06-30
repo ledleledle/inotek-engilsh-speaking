@@ -3,12 +3,12 @@
 
 <head>
 <?php include 'partials/head.php'; ?>
-  <title>Belajar English - Forgot Password</title>
+  <title>Belajar English - Lupa Password</title>
 </head>
 
-<body class="bg-gradient-primary">
-
-  <div class="container">
+<body class="bg-gradient-danger">
+  <?php include 'partials/navbaruser.php'; ?>
+  <br><div class="container">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">

@@ -28,7 +28,10 @@ include 'partials/head.php';
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          <a href="" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
+          <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#addModal">
+                  <i class="fas fa-plus-circle"></i>
+                  Tambah
+                </a>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
                 <!-- Card Header - Accordion -->
@@ -104,6 +107,37 @@ include 'partials/head.php';
   </a>
 
   <?php include 'partials/js.php'; ?>
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tambah Kata</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form method="POST" action="add_kata.php">
+        <div class="modal-body">
+          <div class="form-group">
+           <select class="form-control" name="diff">
+              <option value="1">Easy</option>
+              <option value="2">Medium</option>
+              <option value="3">Hard</option>
+              <option value="4">Very Hard</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control form-control-user" name="kata" placeholder="Kata">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-primary" value="Tambah">
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
