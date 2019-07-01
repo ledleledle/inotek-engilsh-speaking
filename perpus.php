@@ -73,10 +73,18 @@ include 'partials/head.php';
                               }
                             ?>
                             <td align='center'>
-                  <a href='#' class='btn btn-danger btn-circle btn-sm'>
-                    <i class='fas fa-trash'></i></a>
-                    <a href='#' class='btn btn-info btn-circle btn-sm'>
-                    <i class='fas fa-pencil-alt'></i></a></td>
+                  <a href='#' class='btn btn-danger btn-icon-split btn-sm'>
+                    <span class='icon text-white-50'>
+                      <i class='fas fa-trash'></i>
+                    </span>
+                    <span class='text'>Hapus</span>
+                  </a>
+                  <a href='#' class='btn btn-info btn-icon-split btn-sm'>
+                    <span class='icon text-white-50'>
+                      <i class='fas fa-pencil-alt'></i>
+                    </span>
+                    <span class='text'>Edit</span>
+                  </a></td>
                           </tr><?php } ?>
                         </tbody>
                       </table>

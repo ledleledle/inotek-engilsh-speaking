@@ -45,40 +45,51 @@ include 'connect.php';
 </div>
 
 <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-  <h3 style="text-align:center;">Latar Belakang</h3>
+  <h3 style="text-align:center;"><strong>Latar Belakang</strong></h3>
+  <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
+                  </div>
   <?php $show = mysqli_query($conn, "SELECT * FROM info");
   $rou = mysqli_fetch_array($show);
   echo $rou['latar']; ?>
 </div>
 
-<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div style="color: #777;background-color:white;text-align:center;padding:50px 30px;">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 70%; margin: auto;">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Level</h5>
-        <p>Tentukan Skill Yang Kamu Punya</p>
+      <div class="carousel-caption d-none d-md-block bg-success">
+        <h5>Tampilan</h5>
+        <p>Tampilan Yang Menarik</p>
       </div>
-      <img class="d-block w-100" src="bg/bg1.jpeg" alt="First slide">
+      <img class="d-block w-100" src="bg/car1.png" alt="First slide">
     </div>
     <div class="carousel-item">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block bg-success">
         <h5>Level</h5>
         <p>Tentukan Skill Yang Kamu Punya</p>
       </div>
-      <img class="d-block w-100" src="bg/bg2.jpg" alt="Second slide">
+      <img class="d-block w-100" src="bg/car2.png" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <div class="carousel-caption d-none d-md-block bg-danger">
-        <h5>Level</h5>
-        <p>Tentukan Skill Yang Kamu Punya</p>
+      <div class="carousel-caption d-none d-md-block bg-success">
+        <h5>Aktifitas Terakhir</h5>
+        <p>Aktifitas anda akan selalu dicatat dan anda dapat belajar dari kesalahan masa lalu.</p>
       </div>
-      <img class="d-block w-100" src="bg/bg1.jpeg" alt="Third slide">
+      <img class="d-block w-100" src="bg/car3.png" alt="Third slide">
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-caption d-none d-md-block bg-success">
+        <h5>Statistik</h5>
+        <p>Menampilkan Nilai Rata - rata yang anda kumpulkan.</p>
+      </div>
+      <img class="d-block w-100" src="bg/car4.png" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -106,19 +117,16 @@ if(!isset($_SESSION['lvl'])){ ?>
         <div class="row align-items-center justify-content-xl-between">
           <div class="col-xl-6">
             <div>
-              &copy; 2019 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">UNP Kediri</a>
+              &copy; 2019 <a href="http://unpkediri.ac.id/" class="font-weight-bold ml-1" target="_blank">UNP Kediri</a>
             </div>
           </div>
           <div class="col-xl-6">
             <ul class="nav nav-footer justify-content-center justify-content-xl-end">
               <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Kontak Kami</a>
+                <a href="contactus.php" class="nav-link">Kontak Kami</a>
               </li>
               <li class="nav-item">
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">Tentang Kami</a>
-              </li>
-              <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Github</a>
+                <a href="https://github.com/ledleledle/inotek" class="nav-link" target="_blank">Github</a>
               </li>
             </ul>
           </div>

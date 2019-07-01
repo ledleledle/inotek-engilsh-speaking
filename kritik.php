@@ -69,10 +69,10 @@ $page = 6;
                     </tr>
                   </tfoot>
                   <tbody>
-                  <?php $log = mysqli_query($conn, "SELECT * FROM kritik");
+                  <?php $log = mysqli_query($conn, "SELECT * FROM kritik ORDER BY id ASC");
                       while ($rou = mysqli_fetch_array($log)) { ?>
                       <tr>
-                        <td><?php echo $rou['tgl']; ?></td>
+                        <td><a href="#"><?php echo $rou['tgl']; ?></a></td>
                         <td><?php echo $rou['dari']; ?></td>
                         <td><?php echo $rou['email']; ?></td>
                         <td><?php if($rou['tipe'] == 1){

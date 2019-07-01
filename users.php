@@ -1,12 +1,16 @@
 <?php include 'connect.php';
 $page = "2";
 if(isset($_POST['submit'])){
+  $usrid2 = $_POST['admin'];
   @$usr = $_POST['name'];
   @$pass = $_POST['pass'];
   $cek = mysqli_query($conn, "SELECT * FROM user WHERE username = '$usr'");
   $cek2 = mysqli_num_rows($cek);
   if($cek2 == 0){
   $add = mysqli_query($conn, "INSERT INTO `user`(`username`, `password`, `level`, `email`) VALUES ('$usr','$pass','1', '-')");
+  $logbody = "Tambah Admin : ".$usr;
+  $logtgl = date('d M Y');
+  $log = mysqli_query($conn, "INSERT INTO `log`(`tgl`, `admin`, `body`) VALUES ('$logtgl','$usrid2','$logbody')");
   echo '<script>
     setTimeout(function() {
         swal({
@@ -74,7 +78,7 @@ if(isset($_POST['submit'])){
               <!-- Project Card Example -->
               <div class="card shadow mb-4">
                 <a href="#collapseCardExample2" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample2">
-                  <h6 class="m-0 font-weight-bold text-primary">Tambah & Edit Admin</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Tambah Admin</h6>
                 </a>
                 <!-- Card Content - Collapse -->
                 <div class="collapse show" id="collapseCardExample2">
@@ -85,6 +89,7 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" name="pass" placeholder="Password" required>
+                      <input type="hidden" class="form-control form-control-user" name="admin" value="<?php echo $usrid; ?>">
                     </div>
                     <div class="form-group">
                     <input type="submit" name="submit" value="Tambah" class="btn btn-primary btn-user btn-block">
@@ -136,10 +141,18 @@ if(isset($_POST['submit'])){
                   }
                   echo "<td>".$row['email']."</td>
                   <td align='center'>
-                  <a href='#' class='btn btn-danger btn-circle btn-sm'>
-                    <i class='fas fa-trash'></i></a>
-                    <a href='#' class='btn btn-info btn-circle btn-sm'>
-                    <i class='fas fa-pencil-alt'></i></a></td>
+                  <a href='#' class='btn btn-danger btn-icon-split btn-sm'>
+                    <span class='icon text-white-50'>
+                      <i class='fas fa-trash'></i>
+                    </span>
+                    <span class='text'>Hapus</span>
+                  </a>
+                  <a href='#' class='btn btn-info btn-icon-split btn-sm'>
+                    <span class='icon text-white-50'>
+                      <i class='fas fa-pencil-alt'></i>
+                    </span>
+                    <span class='text'>Edit</span>
+                  </a></td>
                   </tr>"; } ?>
                 </tbody>
               </table>

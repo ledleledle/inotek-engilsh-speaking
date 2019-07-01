@@ -5,10 +5,15 @@ include 'connect.php';
 $cek = mysqli_query($conn, "SELECT * FROM info");
 $row = mysqli_fetch_array($cek);
 $cekrow = mysqli_num_rows($cek);
+@$usrid2 = $_POST['admin'];
+$logbody = "Perubahan Latar Belakang";
+ $logtgl = date('d M Y');
 if(isset($_POST['sub'])){
   if($cekrow == 0){
+  $log = mysqli_query($conn, "INSERT INTO `log`(`tgl`, `admin`, `body`) VALUES ('$logtgl','$usrid2','$logbody')");
   $tambah = mysqli_query($conn, "INSERT INTO `info`(`id`, `latar`) VALUES (1,'$submit')");
 } else {
+  $log = mysqli_query($conn, "INSERT INTO `log`(`tgl`, `admin`, `body`) VALUES ('$logtgl','$usrid2','$logbody')");
   $edit = mysqli_query($conn, "UPDATE info SET latar='$submit' WHERE id='1'");
 }
   echo '<script>
@@ -74,6 +79,7 @@ if(isset($_POST['sub'])){
                   <textarea id="editor" name="edit">
                     <?php echo $row['latar']; ?>
                 </textarea>
+                <input type="hidden" name="admin" value="<?php echo $usrid; ?>">
                 <br>
                 <input type="submit" name="sub" class="btn btn-primary">
               </form>
