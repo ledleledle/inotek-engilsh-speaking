@@ -133,7 +133,7 @@ if(isset($_POST['submit'])){
                   <?php $show = mysqli_query($conn, "SELECT * FROM user WHERE NOT id='$usrid'");
                   while($row = mysqli_fetch_array($show)){
                   echo "<tr>
-                  <td>".$row['username']."</td>
+                  <th>".$row['username']."</th>
                   <td>".$row['password']."</td>";
                   if($row['level'] == 1){
                   echo "<td align='center'><span class='badge badge-pill badge-success text-sm'>Admin</span></td>"; }else {
@@ -141,19 +141,13 @@ if(isset($_POST['submit'])){
                   }
                   echo "<td>".$row['email']."</td>
                   <td align='center'>
-                  <a href='#' class='btn btn-danger btn-icon-split btn-sm'>
+                  <a href='#' data-toggle='modal' data-target='#delModal' data-usr='".$row['username']."' class='btn btn-danger btn-icon-split btn-sm'>
                     <span class='icon text-white-50'>
                       <i class='fas fa-trash'></i>
                     </span>
                     <span class='text'>Hapus</span>
-                  </a>
-                  <a href='#' class='btn btn-info btn-icon-split btn-sm'>
-                    <span class='icon text-white-50'>
-                      <i class='fas fa-pencil-alt'></i>
-                    </span>
-                    <span class='text'>Edit</span>
-                  </a></td>
-                  </tr>"; } ?>
+                  </a>";
+                  echo "</tr>"; } ?>
                 </tbody>
               </table>
                 </div>
@@ -181,6 +175,42 @@ if(isset($_POST['submit'])){
   </a>
 
   <?php include 'partials/js.php'; ?>
-</body>
 
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form method="POST" action="delete_user.php">
+        <div class="modal-body">
+          Anda yakin ingin menghapus user ini?
+          <div class="form-group">
+            <input type="hidden" class="form-control form-control-user" name="usr" placeholder="Kata">
+            <input type="hidden" name="log" id="admin">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-danger" value="Hapus">
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+  $('#delModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var recipient = button.data('usr')
+  var modal = $(this)
+  modal.find('.modal-title').text('Hapus User : ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+  modal.find('#admin').val("<?php echo $usrid; ?>")
+})
+</script>
 </html>

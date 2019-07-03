@@ -67,11 +67,11 @@ $page = 5;
                       while ($rou = mysqli_fetch_array($log)) { ?>
                       <tr>
                         <td><?php echo $rou['tgl']; ?></td>
-                        <td><?php
+                        <th><?php
                         $adm0n = $rou['admin'];
                         $editor = mysqli_query($conn, "SELECT * FROM user WHERE id = '$adm0n'");
                         $rought = mysqli_fetch_array($editor);
-                         echo $rought['username']; ?></td>
+                         echo $rought['username']; ?></th>
                         <td><?php echo $rou['body']; ?></td>
                       </tr>  
                       <?php } ?>

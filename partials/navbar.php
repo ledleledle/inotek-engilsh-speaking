@@ -41,12 +41,13 @@ if($lvlusr == 1){
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="#"><strong>
                   <i class="fas fa-user fa-lg fa-fw mr-2 text-gray-400"></i>
                   <?php if($username2['ftname'] == ''){
                     echo "Admin ".$username2['username'];
                   } else { echo $username2['ftname']." ".$username2['lsname']; } ?>
-                </a>
+                </strong><br>
+                Last Login : <?php if($username2['last_login'] == ""){ echo "-";} else {echo $username2['last_login'];} ?></a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

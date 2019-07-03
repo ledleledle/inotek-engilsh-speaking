@@ -72,8 +72,8 @@ $page = 6;
                   <?php $log = mysqli_query($conn, "SELECT * FROM kritik ORDER BY id ASC");
                       while ($rou = mysqli_fetch_array($log)) { ?>
                       <tr>
-                        <td><a href="#"><?php echo $rou['tgl']; ?></a></td>
-                        <td><?php echo $rou['dari']; ?></td>
+                        <th><a href="#"><?php echo $rou['tgl']; ?></a></th>
+                        <th><a href="#"><?php echo $rou['dari']; ?></a></th>
                         <td><?php echo $rou['email']; ?></td>
                         <td><?php if($rou['tipe'] == 1){
                           echo "Saran";

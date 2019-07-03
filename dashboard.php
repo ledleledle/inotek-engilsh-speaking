@@ -271,7 +271,10 @@ ul.timeline > li:before {
                     <?php
                       $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid'");
                       $show2 =mysqli_fetch_array($show1);
-                      $sub = substr($show2['nilai'], 0, 2);
+                      if($show2['nilai'] > 99){
+                      $sub = substr($show2['nilai'], 0, 3); } else {
+                        $sub = substr($show2['nilai'], 0, 2);
+                      }
                       echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
                     </div>
                     <canvas id="myPieChart"></canvas>
