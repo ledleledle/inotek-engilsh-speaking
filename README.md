@@ -1,6 +1,6 @@
 # inotek
 buat lomba
-php native website. i using sb-admin-2 as front-end template and purely bootstrap, a bit css i bymade myself :)
+php native website. i using sb-admin-2 as front-end template and purely bootstrap, a bit css i made bymyself :)
 php and mysql as back-end. that's sucks i hate them
 
 Features :
