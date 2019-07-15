@@ -105,7 +105,7 @@ include 'connect.php';
 <?php
 if(!isset($_SESSION['lvl'])){ ?>
 <div class="bgimg-2">
-  <a href="login.php">
+  <a href="register.php">
   <div class="captiony">
   <span class="bordery" id="hov" style="font-size:20px;color: #f7f7f7;"><b>DAFTAR SEKARANG!</b></span>
   </div></a>

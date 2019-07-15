@@ -9,7 +9,7 @@ if(!isset($usrid)){
 <ul class="navbar-nav bg-gradient-<?php if($lvlusr == 1) { echo 'danger';} else { echo 'primary';} ?> sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
         <div class="sidebar-brand-icon">
           <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="logo" width="40" height="40">
         </div>
@@ -61,10 +61,10 @@ if(!isset($usrid)){
           <span>Dasbor</span></a>
       </li>
 
-      <li <?php if($page == "7"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
+      <li <?php if($page == "7" || $page == 666 || $page == 555){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
         <a class="nav-link" href="cards.php">
           <i class="fas fa-fw fa-play"></i>
-          <span>Mulai</span></a>
+          <span><?php if($page == 666 || $page == 555){ echo "Pilih Level Lain"; } else { echo "Mulai"; } ?></span></a>
       </li>
 
       <li <?php if($page == "5"){ echo "class='nav-item active'"; } else { echo "class='nav-item'"; }?>>
@@ -77,6 +77,11 @@ if(!isset($usrid)){
         <a class="nav-link" href="charts.php">
           <i class="fas fa-fw fa-chart-pie"></i>
           <span>Statistik Anda</span></a>
+      </li>
+      <li class='nav-item'>
+        <a class="nav-link" href="contactus.php">
+          <i class="fas fa-fw fa-comments"></i>
+          <span>Kontak Kami</span></a>
       </li>
   <?php } ?>
       <!-- Divider -->

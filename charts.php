@@ -51,7 +51,13 @@
                     <?php
                       $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif=1");
                       $show2 =mysqli_fetch_array($show1);
-                      $sub = substr($show2['nilai'], 0, 2);
+                      if($show2['nilai'] > 99){
+                      $sub = substr($show2['nilai'], 0, 3); }
+                      else if(strlen($show2['nilai']) > 3){
+                        $sub = substr($show2['nilai'], 0, 3);
+                      } else {
+                        $sub = substr($show2['nilai'], 0, 2);
+                      }
                       echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
                     </div>
                     <canvas id="easyChart"></canvas>
@@ -81,7 +87,13 @@
                     <?php
                       $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif=2");
                       $show2 =mysqli_fetch_array($show1);
-                      $sub = substr($show2['nilai'], 0, 2);
+                      if($show2['nilai'] > 99){
+                      $sub = substr($show2['nilai'], 0, 3); }
+                      else if(strlen($show2['nilai']) > 3){
+                        $sub = substr($show2['nilai'], 0, 3);
+                      } else {
+                        $sub = substr($show2['nilai'], 0, 2);
+                      }
                       echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
                     </div>
                     <canvas id="medChart"></canvas>
@@ -115,7 +127,13 @@
                     <?php
                       $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif=3");
                       $show2 =mysqli_fetch_array($show1);
-                      $sub = substr($show2['nilai'], 0, 2);
+                      if($show2['nilai'] > 99){
+                      $sub = substr($show2['nilai'], 0, 3); }
+                      else if(strlen($show2['nilai']) > 3){
+                        $sub = substr($show2['nilai'], 0, 3);
+                      } else {
+                        $sub = substr($show2['nilai'], 0, 2);
+                      }
                       echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
                     </div>
                     <canvas id="hardChart"></canvas>
@@ -144,7 +162,13 @@
                     <?php
                       $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid' AND dif=4");
                       $show2 =mysqli_fetch_array($show1);
-                      $sub = substr($show2['nilai'], 0, 2);
+                      if($show2['nilai'] > 99){
+                      $sub = substr($show2['nilai'], 0, 3); }
+                      else if(strlen($show2['nilai']) > 3){
+                        $sub = substr($show2['nilai'], 0, 4);
+                      } else {
+                        $sub = substr($show2['nilai'], 0, 2);
+                      }
                       echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
                     </div>
                     <canvas id="vrhardChart"></canvas>
@@ -199,7 +223,10 @@
   <?php include 'js/demo/medium-chart.php'; ?>
   <?php include 'js/demo/hard-chart.php'; ?>
   <?php include 'js/demo/vr-hard-chart.php'; ?>
-
+<?php if(isset($_SESSION['kesulitan'])){
+              include 'russian.php';
+              echo '<script>window.location.reload(true);</script>'; 
+            } ?>
 </body>
 
 </html>

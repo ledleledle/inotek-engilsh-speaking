@@ -13,3 +13,4 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/jquery/jquery-val.min.js"></script>
+  <link href="css/progress-wizard.min.css" rel="stylesheet">

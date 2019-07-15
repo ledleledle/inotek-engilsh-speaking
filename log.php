@@ -146,6 +146,7 @@ $page = 5;
     </div>
   </div>
     </div>
+  </div>
     <!-- End of Content Wrapper -->
 <?php include 'partials/footer.php'; ?>
   </div>
@@ -156,7 +157,11 @@ $page = 5;
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <?php include 'partials/js.php'; ?>
+  <?php include 'partials/js.php'; 
+  if(isset($_SESSION['kesulitan'])){
+              include 'russian.php';
+              echo '<script>window.location.reload(true);</script>'; 
+            } ?>
 </body>
 
 </html>

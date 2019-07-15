@@ -162,9 +162,13 @@ ul.timeline > li:before {
                       if($cekrow == 0){
                         echo "Belum Ada Aktiivitas";
                       } else{
-                      while ($rou = mysqli_fetch_array($log)) { ?>
-                      <li>
-                        <a href="#"><?php echo $rou['body']; ?></a>
+                      while ($rou = mysqli_fetch_array($log)) { 
+                        echo "<li>";
+                        if(strlen($rou['body']) >= 50){
+                          echo '<a href="#">'.substr($rou['body'], 0, 40).' ...</a>';
+                        } else {
+                        ?>
+                        <a href="#"><?php echo $rou['body']; } ?></a>
                         <a href="#" class="float-right"><?php echo $rou['tgl']; ?></a>
                         <p><?php $adm0n = $rou['admin'];
                         $admon = mysqli_query($conn, "SELECT * FROM user WHERE id = '$adm0n'");
@@ -204,7 +208,9 @@ ul.timeline > li:before {
 
             </div>
           </div>
-<?php } else { ?>
+<?php } else { 
+
+        ?>
           <!-- Content Row -->
           <div class="row">
 
@@ -272,7 +278,10 @@ ul.timeline > li:before {
                       $show1 = mysqli_query($conn, "SELECT AVG(nilai) AS nilai FROM log_user WHERE id_user = '$usrid'");
                       $show2 =mysqli_fetch_array($show1);
                       if($show2['nilai'] > 99){
-                      $sub = substr($show2['nilai'], 0, 3); } else {
+                      $sub = substr($show2['nilai'], 0, 3); }
+                      else if(strlen($show2['nilai']) > 3){
+                        $sub = substr($show2['nilai'], 0, 4);
+                      } else {
                         $sub = substr($show2['nilai'], 0, 2);
                       }
                       echo '<a style="font-size: 70px;">'.$sub.'</a>'; ?>
@@ -313,7 +322,12 @@ ul.timeline > li:before {
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <?php include 'partials/js.php'; ?>
+  <?php include 'partials/js.php'; 
+            if(isset($_SESSION['kesulitan'])){
+              include 'russian.php';
+              echo '<script>window.location.reload(true);</script>'; 
+            }
+  ?>
 </body>
 
 </html>

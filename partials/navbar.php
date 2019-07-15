@@ -25,7 +25,17 @@ if($lvlusr == 1){
               if($page == "5"){ echo "<i class='fas fa-fw fa-list fa-sm'></i> Aktivitas terakhir"; }
               if($page == "6"){ echo "<i class='fas fa-fw fa-comments fa-sm'></i> Kritik & Saran"; }
               if($page == "7"){ echo "<i class='fas fa-fw fa-play fa-sm'></i> Mulai"; }
-              if($page == "8"){ echo "<i class='fas fa-fw fa-chart-pie fa-sm'></i> Statistik Anda"; }?></h1>
+              if($page == "8"){ echo "<i class='fas fa-fw fa-chart-pie fa-sm'></i> Statistik Anda"; }
+              if($page == "666" || $page == 555){ 
+                if($difficult == 1 || $_SESSION['kesulitan'] == 1){
+                  echo "<i class='fas fa-fw fa-smile-beam fa-sm'></i> Easy"; }
+                if($difficult == 2 || $_SESSION['kesulitan'] == 2){
+                  echo "<i class='fas fa-fw fa-smile fa-sm'></i> Medium"; }
+                if($difficult == 3 || $_SESSION['kesulitan'] == 3){
+                  echo "<i class='fas fa-fw fa-skull fa-sm'></i> Hard"; }
+                if($difficult == 4 || $_SESSION['kesulitan'] == 4){
+                  echo "<i class='fas fa-fw fa-skull-crossbones fa-sm'></i> Very Hard"; }  
+              }?></h1>
             </div>
           </div>
 

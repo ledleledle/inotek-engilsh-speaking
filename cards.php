@@ -6,6 +6,11 @@
   $page = 7;
   ?>
   <title>Belajar English - Pilih Level</title>
+<style> 
+.box:hover {
+background-color: #f1f1f2; 
+}
+</style>
 </head>
 
 <body id="page-top">
@@ -38,8 +43,8 @@
           <div class="row">
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="stt/index.php?id=1">
-              <div class="card border-left-success shadow h-100 py-2">
+              <a href="redirect.php?id=<?php echo base64_encode('1') ?>" style="text-decoration: none;">
+              <div class="card border-left-success box shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -47,7 +52,7 @@
                       <div class="h5 mb-0 font-weight-bold text-gray-800">Easy</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-smile-beam fa-2x text-gray-300"></i>
+                      <i class="fas fa-smile-beam fa-2x text-success"></i>
                     </div>
                   </div>
                 </div>
@@ -56,8 +61,8 @@
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="stt/index.php?id=2">
-              <div class="card border-left-primary shadow h-100 py-2">
+              <a href="redirect.php?id=<?php echo base64_encode('2') ?>" style="text-decoration: none;">
+              <div class="card border-left-primary box shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -65,7 +70,7 @@
                       <div class="h5 mb-0 font-weight-bold text-gray-800">Medium</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-smile fa-2x text-gray-300"></i>
+                      <i class="fas fa-smile fa-2x "></i>
                     </div>
                   </div>
                 </div>
@@ -74,8 +79,8 @@
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="stt/index.php?id=3">
-              <div class="card border-left-warning shadow h-100 py-2">
+              <a href="redirect.php?id=<?php echo base64_encode('3') ?>" style="text-decoration: none;">
+              <div class="card border-left-warning box shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -87,7 +92,7 @@
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-skull fa-2x text-gray-300"></i>
+                      <i class="fas fa-skull fa-2x text-warning"></i>
                     </div>
                   </div>
                 </div>
@@ -96,8 +101,8 @@
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
-              <a href="stt/index.php?id=4">
-              <div class="card border-left-danger shadow h-100 py-2">
+              <a href="redirect.php?id=<?php echo base64_encode('4') ?>" style="text-decoration: none;">
+              <div class="card border-left-danger box shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -105,7 +110,7 @@
                       <div class="h5 mb-0 font-weight-bold text-gray-800">Very Hard</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-skull-crossbones fa-2x text-gray-300"></i>
+                      <i class="fas fa-skull-crossbones fa-2x text-danger"></i>
                     </div>
                   </div>
                 </div>
@@ -123,7 +128,11 @@
                   <h6 class="m-0 font-weight-bold text-primary">Info</h6>
                 </div>
                 <div class="card-body">
-                  Setelah anda memilih level. Kata akan keluar dan mulailah berbicara! Setelah suara terdeteksi, nilai prosentase kecocokan suara akan ditampilkan.
+                  Setelah anda memilih level. 5 Kata/kalimat akan keluar secara acak dan mulailah berbicara! Setelah suara terdeteksi, nilai prosentase kecocokan suara akan ditampilkan. Dan pastikan mikrofon sudah ter-install.
+                  <br><strong class="text-danger">Catatan :</strong>
+                  <strong class="text-danger"><li>Pastikan Koneksi Internet Stabil kurang lebih 300kb/s, silakan cek di </strong><strong><a href="https://www.speedtest.net/id" target="blank">Speedtest</a></strong></li>
+                  <strong class="text-danger"><li>Keluar/menutup Browser akan menutup sesi soal anda.</strong></li>
+                  <strong class="text-danger"><li>Aplikasi ini masih dalam tahap pengembangan, Jadi jika menemukan masalah/bug. Segera kontak admin</strong> <strong><a href="contactus.php" target="blank">di halaman Kritik & Saran</a></strong></li>
                 </div>
               </div>
 
@@ -152,7 +161,11 @@
   </a>
 
   <!-- Logout Modal-->
-  <?php include 'partials/js.php'; ?>
+  <?php include 'partials/js.php';
+  if(isset($_SESSION['kesulitan'])){
+              include 'russian.php';
+              echo '<script>window.location.reload(true);</script>'; 
+            } ?>
 </body>
 
 </html>
