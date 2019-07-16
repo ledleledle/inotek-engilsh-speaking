@@ -86,8 +86,10 @@ function cek_kemiripan($teks1, $teks2)
 			}
 		}
 	}
+	if($arr_i_h1 != 0 && $arr_i_h2 != 0){
 	$kemiripan2=round(($gram*$k)/($arr_i_h1+$arr_i_h2),4)*100;
 	return $kemiripan2;
+}
 }
 
 

@@ -26,13 +26,13 @@
     <!-- Sidebar -->
     <?php include 'partials/sidebar.php';
           include "cek_kemiripan/function_basic.php";
-          $nilai=cek_kemiripan($_POST['res_soal'], $_POST['data']);
-          $_SESSION['nilai'.$stage] = $nilai; 
-          $_SESSION['kesulitan'] = $difficult;
-          $_SESSION['jwb'.$stage] = $_POST['data'];
-          $_SESSION['soal'.$stage] = $_POST['res_soal'];
-          $_SESSION['idsoal'.$stage] = $_POST['id_soal'];
-          $except = "'".$_SESSION['soal1']."', '".$_SESSION['soal3']."', '".$_SESSION['soal5']."', '".$_SESSION['soal7']."', '".$_SESSION['soal9']."'";
+          $nilai=cek_kemiripan(@$_POST['res_soal'], @$_POST['data']);
+          $_SESSION['nilai'.$stage] = @$nilai; 
+          $_SESSION['kesulitan'] = @$difficult;
+          $_SESSION['jwb'.$stage] = @$_POST['data'];
+          $_SESSION['soal'.$stage] = @$_POST['res_soal'];
+          $_SESSION['idsoal'.$stage] = @$_POST['id_soal'];
+          $except = "'".@$_SESSION['soal1']."', '".@$_SESSION['soal3']."', '".@$_SESSION['soal5']."', '".@$_SESSION['soal7']."', '".@$_SESSION['soal9']."'";
     ?>
     <!-- End of Sidebar -->
 
@@ -69,31 +69,7 @@
                   if (isset($_POST['res_soal'])){     
                     echo '<div class="alert alert-primary" role="alert">
                             <i class="fas fa-clipboard"></i><strong> Soal : </strong>'.$_POST['res_soal'].'
-                          </div>';
-                    echo $_SESSION['idsoal1'];
-                    echo $_SESSION['nilai1'];
-                    echo $_SESSION['jwb1'];
-                    echo $_SESSION['soal1'];     
-                    echo "<br>";
-                    echo $_SESSION['idsoal3'];
-                    echo $_SESSION['nilai3'];
-                    echo $_SESSION['jwb3'];
-                    echo $_SESSION['soal3'];
-                    echo "<br>";
-                    echo $_SESSION['idsoal5'];
-                    echo $_SESSION['nilai5'];
-                    echo $_SESSION['jwb5'];
-                    echo $_SESSION['soal5'];
-                    echo "<br>";
-                    echo $_SESSION['idsoal7'];
-                    echo $_SESSION['nilai7'];
-                    echo $_SESSION['jwb7'];
-                    echo $_SESSION['soal7']; 
-                    echo "<br>";
-                    echo $_SESSION['idsoal9'];
-                    echo $_SESSION['nilai9'];
-                    echo $_SESSION['jwb9'];
-                    echo $_SESSION['soal9'];    
+                          </div>';   
                   }else{
                   $query = mysqli_query($conn, "SELECT * FROM kata WHERE lvl = '$difficult' AND kata NOT IN ($except) ORDER BY RAND() LIMIT 1");
                   $soal = mysqli_fetch_array($query);
