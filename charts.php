@@ -1,3 +1,6 @@
+<?php if(isset($_SESSION['kesulitan'])){
+              header("location: russian.php"); 
+            } else { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -230,3 +233,4 @@
 </body>
 
 </html>
+<?php } ?>

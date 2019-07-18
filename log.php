@@ -1,4 +1,7 @@
-<?php include 'connect.php';
+<?php if(isset($_SESSION['kesulitan'])){
+              header("location: russian.php"); 
+            } else {
+include 'connect.php';
 $page = 5;
 ?>
 <!DOCTYPE html>
@@ -165,3 +168,4 @@ $page = 5;
 </body>
 
 </html>
+<?php } ?>

@@ -1,4 +1,6 @@
-<?php 
+<?php if(isset($_SESSION['kesulitan'])){
+              header("location: russian.php"); 
+            } else {
 $page = '1';
 include 'connect.php';
 $user1 = mysqli_query($conn, "SELECT * FROM user WHERE level = 2");
@@ -322,12 +324,8 @@ ul.timeline > li:before {
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <?php include 'partials/js.php'; 
-            if(isset($_SESSION['kesulitan'])){
-              include 'russian.php';
-              echo '<script>window.location.reload(true);</script>'; 
-            }
-  ?>
+  <?php include 'partials/js.php'; ?>
 </body>
 
 </html>
+<?php } ?>

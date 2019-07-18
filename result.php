@@ -107,7 +107,7 @@ for ( $i = 0; $i < count( $PecahStr ); $i++ ) {
   if(@$PecahStr[$i] == @$PecahStr2[$i]){
     echo $PecahStr[$i]." ";
   }else{
-    echo "<a class='bg-danger text-white'>".@$PecahStr[$i]."</a> ";
+    echo "<a class=' text-danger'>".@$PecahStr[$i]."</a> ";
   }
 }
 echo "<hr>"; 
@@ -115,10 +115,14 @@ for ( $i = 0; $i < count( $PecahStr2 ); $i++ ) {
 if(@$PecahStr[$i] == @$PecahStr2[$i]){
     echo $PecahStr2[$i]." ";
   }else{
-    echo "<a class='bg-danger text-white'>".@$PecahStr2[$i]."</a> ";
+    echo "<a class='text-danger'>".@$PecahStr2[$i]."</a> ";
   }
 }  ?>
-            </div>
+            </div><?php
+            $sum = $_SESSION['nilai1'] + $_SESSION['nilai3'] + $_SESSION['nilai5'] + $_SESSION['nilai7'] + $_SESSION['nilai9'] / 5;
+            echo '<div class="alert alert-secondary" role="alert">
+                    <i class="fas fa-chart-pie"></i><strong> Nilai Akhir : </strong>'.$sum.' %
+                </div>'; ?>
                 </div>
               </div>
 

@@ -91,8 +91,4 @@ function cek_kemiripan($teks1, $teks2)
 	return $kemiripan2;
 }
 }
-
-
-
-
 ?>
