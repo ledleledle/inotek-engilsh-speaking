@@ -45,35 +45,35 @@
                 <div class="card-body">
                   <ul class="progress-indicator custom-complex">
             <li class="<?php if($id == '' || $id == 1){ echo 'completed'; } ?>">
-                <a href="?id=1">
+                <a href="?id=1&no_soal=1">
                     <span class="bubble"></span>
                     <i class="fa fa-check-circle"></i>
                     No. 1
                 </a>
             </li>
             <li class="<?php if($id == 3){ echo 'completed'; } ?>">
-                <a href="?id=3">
+                <a href="?id=3&no_soal=2">
                     <span class="bubble"></span>
                     <i class="fa fa-check-circle"></i>
                     No. 2
                 </a>
             </li>
             <li class="<?php if($id == 5){ echo 'completed'; } ?>">
-                <a href="?id=5">
+                <a href="?id=5&no_soal=3">
                     <span class="bubble"></span>
                     <i class="fa fa-check-circle"></i>
                     No. 3
                 </a>
             </li>
             <li class="<?php if($id == 7){ echo 'completed'; } ?>">
-                <a href="?id=7">
+                <a href="?id=7&no_soal=4">
                     <span class="bubble"></span>
                     <i class="fa fa-check-circle"></i>
                     No. 4
                 </a>
             </li>
             <li class="<?php if($id == 9){ echo 'completed'; } ?>">
-                <a href="?id=9">
+                <a href="?id=9&no_soal=5">
                     <span class="bubble"></span>
                     <i class="fa fa-check-circle"></i>
                     No. 5
@@ -93,10 +93,10 @@
                     <i class="fas fa-microphone"></i><strong> Jawaban : </strong>'.$_SESSION[$jwbea].'
                 </div>';
                 echo '<div class="alert alert-info" role="alert">
-                    <i class="fas fa-chart-pie"></i><strong> Nilai : </strong>'.$_SESSION['nilai'.$id].' %
+                    <i class="fas fa-chart-pie"></i><strong> Nilai No '.$_GET['no_soal'].' : </strong>'.$_SESSION['nilai'.$id].' %
                 </div>';
                 echo '<div class="alert alert-success" role="alert">
-                    <i class="fas fa-chart-pie"></i><strong> Koreksi : <br>';
+                    <i class="fas fa-stream"></i><strong> Koreksi : <br>';
 
 $string = $_SESSION[$soalea];
 $string2 = $_SESSION[$jwbea];
@@ -121,8 +121,8 @@ if(@$PecahStr[$i] == @$PecahStr2[$i]){
             </div><?php
             $sum = $_SESSION['nilai1'] + $_SESSION['nilai3'] + $_SESSION['nilai5'] + $_SESSION['nilai7'] + $_SESSION['nilai9'] / 5;
             echo '<div class="alert alert-secondary" role="alert">
-                    <i class="fas fa-chart-pie"></i><strong> Nilai Akhir : </strong>'.$sum.' %
-                </div>'; ?>
+                    <i class="fas fa-chart-pie"></i><strong> Nilai Akhir : </strong><center><h1>'.$sum.' %
+                </h1></center></div>'; ?>
                 </div>
               </div>
 

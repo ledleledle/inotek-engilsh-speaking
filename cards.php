@@ -1,6 +1,3 @@
-<?php if(isset($_SESSION['kesulitan'])){
-              header("location: russian.php"); 
-            } else { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,11 +162,10 @@ background-color: #f1f1f2;
 
   <!-- Logout Modal-->
   <?php include 'partials/js.php';
-  /* if(isset($_SESSION['kesulitan'])){
+   if(isset($_SESSION['kesulitan'])){
               include 'russian.php';
               echo '<script>window.location.reload(true);</script>'; 
-            } */ ?>
+            }  ?>
 </body>
 
 </html>
-<?php } ?>
