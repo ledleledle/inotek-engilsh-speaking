@@ -148,7 +148,6 @@ $page = 5;
     </div>
   </div>
     <!-- End of Content Wrapper -->
-<?php include 'partials/footer.php'; ?>
   </div>
   <!-- End of Page Wrapper -->
 

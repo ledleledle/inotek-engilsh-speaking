@@ -55,7 +55,7 @@ $page = 6;
                       <th>Email</th>
                       <th>Tipe</th>
                       <th>Isi</th>
-                      <th>Status</th>
+                      <!-- <th>Status</th> -->
                     </tr>
                   </thead>
                   <tfoot>
@@ -65,7 +65,7 @@ $page = 6;
                       <th>Email</th>
                       <th>Tipe</th>
                       <th>Isi</th>
-                      <th>Status</th>
+                      <!-- <th>Status</th> -->
                     </tr>
                   </tfoot>
                   <tbody>
@@ -81,13 +81,13 @@ $page = 6;
                           echo "Kritik";
                         } ?></td>
                         <td><?php echo $rou['isi']; ?></td>
-                        <td><?php if($rou['status'] == 1){
+                        <!--<td><?php /* if($rou['status'] == 1){
                           echo "<span class='badge badge-pill badge-warning'><i class='fas fa-check'></i> Belum Dibaca</span>";
                         } elseif($rou['status'] == 2) {
                           echo "<span class='badge badge-pill badge-success'><i class='fas fa-check-double'></i> Dibaca</span>";
                         } else {
                           echo "<span class='badge badge-pill badge-primary'><i class='fas fa-mail-bulk'></i> Dibalas</span>";
-                        } ?></td>
+                        } */ ?></td> -->
                       </tr>  
                       <?php } ?>
                 </tbody>

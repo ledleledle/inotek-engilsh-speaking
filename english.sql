@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2019 at 05:55 AM
+-- Generation Time: Jul 21, 2019 at 09:13 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.6
 
@@ -124,7 +124,9 @@ INSERT INTO `log` (`id`, `tgl`, `admin`, `body`) VALUES
 (7, '04 Jul 2019', 1, 'Tambah Kata : Thy transgression shall not go unpunished, Level : Very Hard'),
 (8, '04 Jul 2019', 1, 'Tambah Kata : But one day tiny flames will dance across the darkness, Level : Very Hard'),
 (9, '04 Jul 2019', 1, 'Tambah Kata : Take nourishment from these sovereignless souls, Level : Very Hard'),
-(10, '04 Jul 2019', 1, 'Tambah Kata : Then touch the darkness within me, Level : Hard');
+(10, '04 Jul 2019', 1, 'Tambah Kata : Then touch the darkness within me, Level : Hard'),
+(11, '21 Jul 2019', 3, 'Tambah Admin : qwerty'),
+(12, '21 Jul 2019', 3, 'Tambah Admin : qwerty');
 
 -- --------------------------------------------------------
 
@@ -148,7 +150,23 @@ CREATE TABLE `log_user` (
 
 INSERT INTO `log_user` (`id`, `id_user`, `tgl`, `id_kata`, `input`, `nilai`, `dif`) VALUES
 (1, 2, '29 Jul 2019', 1, 'Insert', '100', 1),
-(2, 2, '29 Jul 2019', 1, 'Inset', '80', 1);
+(2, 2, '29 Jul 2019', 1, 'Inset', '80', 1),
+(3, 2, '15 Jul 2019', 12, 'Who is this', '16', 4),
+(4, 2, '18 Jul 2019', 9, 'Microphone', '6.06', 4),
+(5, 2, '18 Jul 2019', 12, 'Fairy house', '7.84', 4),
+(6, 2, '18 Jul 2019', 10, 'English speaking', '11.54', 4),
+(7, 2, '18 Jul 2019', 2, 'It said', '0', 4),
+(8, 2, '18 Jul 2019', 11, 'Darkness', '29.17', 4),
+(9, 2, '18 Jul 2019', 9, 'Better.', '0', 4),
+(10, 2, '18 Jul 2019', 12, 'Updates', '4.26', 4),
+(11, 2, '18 Jul 2019', 10, 'Easy PC', '4.55', 4),
+(12, 2, '18 Jul 2019', 2, 'Desperate', '12.5', 4),
+(13, 2, '18 Jul 2019', 11, 'Flames', '21.74', 4),
+(14, 2, '18 Jul 2019', 8, '30 30 30', '0', 4),
+(15, 2, '18 Jul 2019', 10, 'Hope you like', '0', 4),
+(16, 2, '18 Jul 2019', 11, 'Puppets', '0', 4),
+(17, 2, '18 Jul 2019', 9, 'Microphone', '6.06', 4),
+(18, 2, '18 Jul 2019', 12, 'Icon', '0', 4);
 
 -- --------------------------------------------------------
 
@@ -166,7 +184,7 @@ CREATE TABLE `user` (
   `lsname` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `temp` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `exp_temp` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last_login` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `last_login` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -175,8 +193,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `level`, `email`, `ftname`, `lsname`, `temp`, `exp_temp`, `last_login`) VALUES
 (1, 'admin', 'admin', 1, NULL, NULL, NULL, NULL, NULL, '09-07-2019 11:36:44'),
-(2, 'user', 'user', 2, 'user@user.ac.id', 'User', 'Name', NULL, NULL, '15-07-2019 05:44:53'),
-(3, 'adm0n', 'adm0n', 1, '-', NULL, NULL, NULL, NULL, '');
+(2, 'user', 'user', 2, 'user@user.ac.id', 'User', 'Name', NULL, NULL, '21-07-2019 02:04:31'),
+(3, 'adm0n', 'adm0n', 1, '-', NULL, NULL, NULL, NULL, '21-07-2019 02:11:06'),
+(4, 'qwerty', 'qwerty', 1, '-', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -246,19 +265,19 @@ ALTER TABLE `kritik`
 -- AUTO_INCREMENT for table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `log_user`
 --
 ALTER TABLE `log_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
